@@ -1,8 +1,5 @@
-# Visualização de dados com BOKEH
+# Servidor Bokeh
 
-Repositório criado para realização do trabalho final (A2) da disciplina de **Introdução à Ciência de Dados**. O projeto será realizado em um grupo de 4 pessoas, que realizarão visualizações de uma base de dados utilizando a biblioteca "bokeh" do python.
+Em virtude do servidor bokeh precisar ser hospedado para a sua plena execução, foi feito este fork, para executá-lo no serviço de hospegaem [render](https://render.com/), como apenas as visualizações do estudante Sillas Rocha da Costa necessitavam de uma hospedagem, apenas elas foram disponibilizadas no serviço, pois a página com as visualizações de todos os estudantes não seria suportada na versão gratuita, deste modo, será feita a importação do link da página no html final do projeto, https://gtironi.github.io/icd_bokeh_a2, permitindo as interações com o bokeh server e respeitando o limite da versão gratuita do [render](https://render.com/).
 
----
-## Base de Dados
-
-A base de dados escolhida através de uma pesquisa no [kaggle](https://www.kaggle.com/) foi a [Spotify and Youtube](https://www.kaggle.com/datasets/salvatorerastelli/spotify-and-youtube), que possui dados sobre músicas retirados tanto do Spotify quanto do Youtube, em conjunto com a [Spotify Dataset 1921-2020](https://www.kaggle.com/datasets/yamaerenay/spotify-dataset-19212020-600k-tracks), que possui os dados de popularidade e ano de lançamento das músicas.
+O projeto completo está disponível em https://github.com/gtironi/icd_bokeh_a2.
