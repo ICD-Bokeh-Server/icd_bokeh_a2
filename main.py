@@ -21,6 +21,11 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 
 new_margins = """
 <style>
+body {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
 .block-container {
     margin-top: -72px;
 }
