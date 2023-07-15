@@ -19,6 +19,7 @@ st.set_page_config(
 )
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
+
 new_margins = """
 <style>
             #MainMenu {visibility: hidden;}
@@ -28,11 +29,6 @@ new_margins = """
 body {
   background-color: #f5f5f5;
   color: #000;
-}
-
-
-.block-container {
-    margin-top: -72px;
 }
 </style>
 """
@@ -140,3 +136,4 @@ with st.container():
 st.bokeh_chart(visualizacoes_sillas.gera_explicacoes_sillas())
 
 curdoc().add_next_tick_callback([streamlit_music_callback, streamlit_category_callback])
+
