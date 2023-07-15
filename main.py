@@ -98,7 +98,7 @@ def update_category_selected(new_category):
 
 with st.container():
     columns_selection = st.columns(2)
-    selectec_music = columns_selection[0].selectbox("Músicas Disponíveis (Selecione como aparece no spotify):",
+    selectec_music = columns_selection[0].selectbox("Músicas Disponíveis (Selecione de acordo com como aparece no Spotify):",
                                                     all_music_names)
     update_music_selected(selectec_music)
     
