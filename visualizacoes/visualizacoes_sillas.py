@@ -433,13 +433,13 @@ def gera_filtros_categorias(path, filter_plot, density_plot):
 
 
 def gera_explicacoes_sillas():
-    colunas_linhas = Div(text = """<h2>Gráfico de colunas com categorias</h2>
+    colunas_linhas = Div(text = """<h2>Gráfico de colunas com categorias:</h2>
     <p>O primeiro gráfico é composto pela comparação entre as categorias Danceability, Energy, Valence, Speechiness, Acousticness.<br>
     Todas as músicas possuem essas características, geradas automaticamente pelo spotify, o objetivo deste gráfico é, através da escolha de
     uma música, com o seletor ao lado do gráfico, fazer uma comparação entre as categorias da música selecionada com a média das categorias das
     top 10 músicas mais ouvidas no Spotify. Como o intuito é uma comparação, foi utilizado um gráfico de colunas lado a lado, a paleta se mantém a mesma,
     com várias inspirações na do spotify, como todas as categorias vão de 0 à 1, é razoável medi-lás em porcentagem.</p>
-    <h2>Gráfico de linhas</h2>
+    <h2>Gráfico de linhas:</h2>
     <p>O terceira gráfico busca exibir a o crescimento da popularidade médias das músicas lançadas
     por ano, por isso há a escolha do gráfico de linhas para representar esta passagem de tempo,
     além disso uma anotação de destaque foi feita para exibir o aumento da popularidade média
@@ -447,7 +447,7 @@ def gera_explicacoes_sillas():
     deslizamento, que permite percorrer a linha temporal de maneira dinâmica.</p>""",
             style = {'text-align': 'justify', 'font-size': '16px'}, width=580, margin=(0, 40, 50, 40))
 
-    scatter = Div(text = """<h2>Gráfico de scatter plot com histograma</h2>
+    scatter = Div(text = """<h2>Gráfico de scatter plot e histograma:</h2>
     <p>O segundo gráfico é composto pela correlação entre a categoria selecionada e o número de vezes ouvidas
     no spotify por músicas, deste modo foi possível trazer um destaque para a música selecionada como uma estrela,
     as categorias disponíveis são as do primeiro gráfico que vão de 0 a 1 e representam o quanto o traço daquela categoria
