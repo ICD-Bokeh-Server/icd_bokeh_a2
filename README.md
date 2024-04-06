@@ -8,7 +8,7 @@ A parte feita utilizando a hospodegaem do streamlit pode ser encontrada em [Visu
 
 ## Como executar localmente
 
-Comece clonando o repositório, por exemplo, com o comando:
+Comece clonando este repositório, por exemplo, com o comando:
 
 - `git clone https://github.com/scrocha/Servidor_Bokeh_ICD_A2_2023.1.git`
 
