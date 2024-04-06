@@ -1,14 +1,9 @@
 
 # Importações do módulo de visualização
 import streamlit as st
-from bokeh.plotting import figure
 from bokeh.io import curdoc
-from bokeh.layouts import column, row
-from bokeh.models import ColumnarDataSource, Button, TextInput, Div, RangeTool, BoxAnnotation
-from bokeh.models import NumeralTickFormatter, HoverTool, Label, Legend, LegendItem
-from bokeh.transform import dodge
+from bokeh.models import HoverTool, LegendItem
 from visualizacoes import read_data
-from visualizacoes import plot_style
 from visualizacoes import visualizacoes_sillas
 
 
@@ -17,8 +12,6 @@ st.set_page_config(
     menu_items=None,
     initial_sidebar_state="auto",
 )
-st.set_option('deprecation.showfileUploaderEncoding', False)
-
 
 new_margins = """
 <style>
@@ -32,11 +25,14 @@ body {
 }
 </style>
 """
+
+st.markdown("<h1 align=center>Visualizações das Músicas do Spotify</h1>", unsafe_allow_html=True)
+
 st.markdown(new_margins, unsafe_allow_html=True)
 
 categories = ["Danceability", "Energy", "Valence", "Speechiness", "Acousticness"]
 
-path = "data/spotify_youtube_year.csv"
+path = "./data/spotify_youtube_year.csv"
 
 all_music_names = read_data.get_column_observations(path, "Track", sort_column = "Stream")
 

@@ -5,3 +5,19 @@ Em virtude do servidor bokeh precisar ser hospedado para a sua plena execução,
 O projeto completo está disponível em https://github.com/gtironi/icd_bokeh_a2.
 
 A parte feita utilizando a hospodegaem do streamlit pode ser encontrada em [Visualizações Spotify](https://icd-bokeh-server.streamlit.app/).
+
+## Como executar localmente
+
+Comece clonando o repositório, por exemplo, com o comando:
+
+- `git clone https://github.com/scrocha/Servidor_Bokeh_ICD_A2_2023.1.git`
+
+Após isso, instale as dependências necessárias com o arquivo `requirements.txt`:
+
+- `pip install -r requirements.txt`
+
+E por fim, execute o comando:
+
+- `streamlit run main.py`
+
+Que por padrão, abrirá um host local na porta `8501` para a aplicação ser executada.
