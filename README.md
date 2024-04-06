@@ -20,4 +20,4 @@ E por fim, execute o comando:
 
 - `streamlit run main.py`
 
-Que por padrão, abrirá um host local na porta `8501` para a aplicação ser executada.
+Que por padrão, abrirá um host local na porta http://localhost:8501 para a aplicação ser executada.
