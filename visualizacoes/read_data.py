@@ -25,6 +25,7 @@ Funcionalidades:
 import pandas as pd
 import numpy as np
 from bokeh.models import ColumnDataSource
+import streamlit as st
 
 def csv_to_columndatasource(path, colunas = []):
     '''Gera um objeto ColumnDataSource a partir de um arquivo .csv
@@ -304,6 +305,7 @@ def csv_filter_by_name_to_cds(path, filter_column, value, lowercase = False):
 
     return ColumnDataSource(filtered_data), ColumnDataSource(selected_row)
 
+@st.cache_data
 def get_column_observations(path, column, sort_column = "", lowercase = False):
     """Gera uma lista com os dados de uma coluna especificada de um arquivo .csv
     
