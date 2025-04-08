@@ -4,8 +4,8 @@ from bokeh.layouts import column, row
 from bokeh.models import Select, Button, TextInput, Div, RangeTool, BoxAnnotation
 from bokeh.models import NumeralTickFormatter, HoverTool, Label
 from bokeh.transform import dodge
-from . import read_data
-from . import plot_style
+from visualizacoes import read_data
+from visualizacoes import plot_style
 
 # output_file("testando.html")
 

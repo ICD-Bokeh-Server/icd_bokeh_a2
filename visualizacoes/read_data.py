@@ -25,6 +25,7 @@ Funcionalidades:
 import pandas as pd
 import numpy as np
 from bokeh.models import ColumnDataSource
+import streamlit as st
 
 def csv_to_columndatasource(path, colunas = []):
     '''Gera um objeto ColumnDataSource a partir de um arquivo .csv
@@ -54,7 +55,7 @@ def csv_to_columndatasource(path, colunas = []):
         >>> csv_to_columndatasource("data/spotify_youtube_year.csv", ['Artist, 'Track'])
     '''
 
-    df = pd.read_csv(path) 
+    df = pd.read_csv(path, low_memory=False) 
     if colunas != []:
         df = df.loc[:, colunas]
     
@@ -93,7 +94,7 @@ def csv_get_top(path, sort_column, duplicated_column = "", num = 10):
             data frame.
     """
 
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, low_memory=False)
 
     if duplicated_column != "":
         df = df.drop_duplicates(duplicated_column)
@@ -136,7 +137,7 @@ def csv_get_top_names(path, names_column, sort_column, num = 10):
             da ordenação.
     """
 
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, low_memory=False)
     df = df.drop_duplicates(names_column)
 
     sorted_df = df.sort_values(sort_column, ascending = False).head(num)
@@ -200,7 +201,7 @@ def histogram_data(path, column, start = 0, end = 1, bins = 10, proportion_colum
             do histograma a partir do ".quad()".
     """
 
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, low_memory=False)
     data = df[column]
     interval = [start, end]
 
@@ -289,7 +290,7 @@ def csv_filter_by_name_to_cds(path, filter_column, value, lowercase = False):
             selecionada.
     """
 
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, low_memory=False)
     df.drop_duplicates(filter_column, inplace = True)
     if lowercase == False:
         selected_row = df[df[filter_column] == value]
@@ -304,6 +305,7 @@ def csv_filter_by_name_to_cds(path, filter_column, value, lowercase = False):
 
     return ColumnDataSource(filtered_data), ColumnDataSource(selected_row)
 
+@st.cache_data
 def get_column_observations(path, column, sort_column = "", lowercase = False):
     """Gera uma lista com os dados de uma coluna especificada de um arquivo .csv
     
@@ -333,7 +335,7 @@ def get_column_observations(path, column, sort_column = "", lowercase = False):
             dos parâmetros definidos.
     """
 
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, low_memory=False)
     df.drop_duplicates(column, inplace = True)
 
     if sort_column != "":
@@ -387,7 +389,7 @@ def get_statistic_by_year(path, years_column, target_column, interval = [1960, 2
             feitas as coletas, e years.
     """
 
-    df = pd.read_csv(path)
+    df = pd.read_csv(path, low_memory=False)
     df = df.sort_values(years_column)
     data = df[(df[years_column] >= interval[0]) & (df[years_column] <= interval[1])]
 
@@ -432,7 +434,7 @@ def columndatasource_plot1_gustavo(datapath):
         >>> columndatasource_plot1_gustavo("data/spotify_youtube_year_year.csv")
     '''
 
-    df = pd.read_csv(datapath) #lê o csv
+    df = pd.read_csv(datapath, low_memory=False) #lê o csv
 
     df.rename(columns={'release_date': 'year'}, inplace=True) #renomeia a coluna, para melhor legibilidade do código.
 
@@ -470,7 +472,7 @@ def columndatasource_plot2_gustavo(datapath):
         >>> columndatasource_plot2_gustavo("data/spotify_youtube_year_year.csv")
     '''
 
-    df = pd.read_csv(datapath) #lê o csv
+    df = pd.read_csv(datapath, low_memory=False) #lê o csv
 
     df_views_por_track = df.sort_values(by = 'Views', ascending=False).drop_duplicates('Track') #organiza os dados em ordem decresente na coluna 'Views'. Também retira as míúsicas duplicadas
 
@@ -506,7 +508,7 @@ def columndatasource_plot3_gustavo(datapath):
         >>> columndatasource_plot3_gustavo("data/spotify_youtube_year_year.csv")
     '''
 
-    df = pd.read_csv(datapath) #lê o csv
+    df = pd.read_csv(datapath, low_memory=False) #lê o csv
 
     df['official_video'] = df['official_video'].astype(str) #transforma os valores true e false (boleanos) da coluna, para o tipo string.
 
@@ -518,7 +520,7 @@ def columndatasource_plot2_leonardo(datapath):
 
     # Leitura do arquivo
 
-    df = pd.read_csv(datapath)
+    df = pd.read_csv(datapath, low_memory=False)
 
     # Contruindo uma nova coluna de curtidas em milhões
 
@@ -546,7 +548,7 @@ def columndatasource_plot3_leonardo(datapath):
 
     # Leitura do arquivo
 
-    df = pd.read_csv(datapath)
+    df = pd.read_csv(datapath, low_memory=False)
 
     # Contruindo uma nova coluna de curtidas em milhões
 
@@ -592,7 +594,7 @@ def columndatasource_plot1_marciano(path):
         data_source_1
             ColumnDataSource pronto para a plotagem do gráfico
     """
-    data = pd.read_csv(path) # Lendo o .csv como um data frame do pandas
+    data = pd.read_csv(path, low_memory=False) # Lendo o .csv como um data frame do pandas
 
     color = [] # Criando lista vazia para posteriormente tranformar em coluna que define a cor dos glifos.
 
@@ -627,7 +629,7 @@ def columndatasource_plot2_marciano(path):
         music_duration_mean
             Média de duração das músicas em todos os anos
     """
-    data = pd.read_csv(path) # Lendo o .csv como um data frame do pandas
+    data = pd.read_csv(path, low_memory=False) # Lendo o .csv como um data frame do pandas
 
     data["Duration_s"] = data["Duration_ms"]/1000 # Mudando a coluna Duration_ms para segundos (dividindo por 1000)
 
@@ -669,7 +671,7 @@ def columndatasource_plot3_marciano(path):
         lista_top30_artistas
             Lista para fazer o label dos artistas no eixo Y
     """
-    data = pd.read_csv(path) # Lendo o .csv como um data frame do pandas
+    data = pd.read_csv(path, low_memory=False) # Lendo o .csv como um data frame do pandas
 
     data = data.dropna(subset=['Stream']) # Removendo as músicas que não possuiam o númeoro de streams
 
